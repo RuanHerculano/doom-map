@@ -1,6 +1,5 @@
-package com.doommap;
+package com.doommap.config;
 
-import com.doommap.config.SpringConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -19,4 +18,5 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
+
 }

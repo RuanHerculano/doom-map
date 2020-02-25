@@ -25,6 +25,6 @@ public class ReportController {
         model.addAttribute("name", name);
         model.addAttribute("reports", reports);
 
-        return "index";
+        return "report/index";
     }
 }

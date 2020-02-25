@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @Controller
 public class ReportController {
 
-    @GetMapping({"/"})
+    @GetMapping("/")
     public String index(Model model, @RequestParam(value="name", required=false, defaultValue="Hello World!") String name) {
         ArrayList<Report> reports = new ArrayList<Report>();
 
@@ -24,6 +24,7 @@ public class ReportController {
 
         model.addAttribute("name", name);
         model.addAttribute("reports", reports);
+
         return "index";
     }
 }

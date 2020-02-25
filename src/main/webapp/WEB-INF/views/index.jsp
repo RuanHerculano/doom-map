@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hello ${name}!</title>
+    <title>Doom Map</title>
     <link rel="icon" href="${pageContext.request.contextPath}/resources/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -23,6 +24,11 @@
     <script src="${pageContext.request.contextPath}/resources/js/index.js"></script>
 </head>
 <body>
-<h2 class="hello-title">Hello ${name}!</h2>
+<div>
+    <h2 class="hello-title">Ocorrências</h2>
+    <c:forEach items="${reports}" var="report">
+        <p>Item <c:out value="${report.getDate()}"/> </p>
+    </c:forEach>
+</div>
 </body>
 </html>

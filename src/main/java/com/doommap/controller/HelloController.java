@@ -5,12 +5,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+
+import com.doommap.entity.Report;
+
+
 @Controller
 public class HelloController {
 
     @GetMapping({"/", "/hello"})
     public String hello(Model model, @RequestParam(value="name", required=false, defaultValue="Hello World!") String name) {
+        ArrayList<Report> reports = new ArrayList<Report>();
+
+        for (int i = 0; i < 10; i++) {
+            Report report = new Report(LocalDateTime.now());
+            reports.add(report);
+        }
+
         model.addAttribute("name", name);
+        model.addAttribute("reports", reports);
         return "index";
     }
 }

@@ -1,6 +1,6 @@
-package com.doommap.controller;
+package com.doommap.web.module.report.controller;
 
-import com.doommap.entity.Report;
+import com.doommap.web.module.report.entity.Report;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,10 +11,10 @@ import java.util.ArrayList;
 
 
 @Controller
-public class HelloController {
+public class ReportController {
 
-    @GetMapping({"/", "/hello"})
-    public String hello(Model model, @RequestParam(value="name", required=false, defaultValue="Hello World!") String name) {
+    @GetMapping({"/"})
+    public String index(Model model, @RequestParam(value="name", required=false, defaultValue="Hello World!") String name) {
         ArrayList<Report> reports = new ArrayList<Report>();
 
         for (int i = 0; i < 10; i++) {

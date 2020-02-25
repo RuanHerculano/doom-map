@@ -1,4 +1,4 @@
-package com.doommap.entity;
+package com.doommap.web.module.report.entity;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

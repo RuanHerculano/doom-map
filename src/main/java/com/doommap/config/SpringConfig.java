@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan({"com.doommap"})
+@ComponentScan({"com.doommap.web"})
 public class SpringConfig implements WebMvcConfigurer {
 
     @Override

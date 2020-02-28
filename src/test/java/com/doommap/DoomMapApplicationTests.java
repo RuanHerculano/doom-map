@@ -33,8 +33,8 @@ public class DoomMapApplicationTests {
                 get("/"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(view().name("index"))
-                .andExpect(forwardedUrl("/WEB-INF/views/index.jsp"))
+                .andExpect(view().name("report/index"))
+                .andExpect(forwardedUrl("/WEB-INF/views/report/index.jsp"))
                 .andExpect(model().attribute("name", "Hello World!"));
     }
 }

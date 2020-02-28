@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-
 @Controller
 public class ReportController {
 

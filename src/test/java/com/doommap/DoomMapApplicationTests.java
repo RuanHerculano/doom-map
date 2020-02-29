@@ -26,15 +26,4 @@ public class DoomMapApplicationTests {
         mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
     }
 
-    @Test
-    public void testWelcome() throws Exception {
-
-        this.mockMvc.perform(
-                get("/"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(view().name("report/index"))
-                .andExpect(forwardedUrl("/WEB-INF/views/report/index.jsp"))
-                .andExpect(model().attribute("name", "Hello World!"));
-    }
 }

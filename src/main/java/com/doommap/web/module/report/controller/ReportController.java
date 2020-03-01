@@ -1,6 +1,10 @@
 package com.doommap.web.module.report.controller;
 
+import com.doommap.web.module.report.entity.Report;
 import com.doommap.web.module.report.service.ReportService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +19,9 @@ public class ReportController {
 
     @GetMapping("/")
     public String index(Model model, @RequestParam(value="name", required=false, defaultValue="Hello World!") String name) {
-        model.addAttribute("reports", reportService.findAll());
+        List<Report> reports = reportService.findAll();
+        
+        model.addAttribute("reports", reports);
 
         return "report/index";
     }

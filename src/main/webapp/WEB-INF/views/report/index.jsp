@@ -27,7 +27,7 @@
 <div>
     <h2 class="hello-title">Ocorrências</h2>
     <c:forEach items="${reports}" var="report">
-        <p>Item <c:out value="${report.getDate()}"/> </p>
+        <p>Item <c:out value="${report.getUuid()}"/></p>
     </c:forEach>
 </div>
 </body>

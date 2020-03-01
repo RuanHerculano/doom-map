@@ -17,12 +17,17 @@ public class ReportController {
     @Autowired
     private ReportService reportService;
 
-    @GetMapping("/")
+    @GetMapping({"/", "/report"})
     public String index(Model model, @RequestParam(value="name", required=false, defaultValue="Hello World!") String name) {
         List<Report> reports = reportService.findAll();
-        
+
         model.addAttribute("reports", reports);
 
         return "report/index";
+    }
+
+    @GetMapping("/report/new")
+    public String newReport() {
+        return "report/new";
     }
 }

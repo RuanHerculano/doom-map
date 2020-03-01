@@ -56,20 +56,20 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Pesquisar</button>
             </form>
         </div>
     </nav>
     <div class="container">
         <div class="mt-4">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Voltar</button>
+            <a href="/report" class="btn btn-outline-primary my-2 my-sm-0">Voltar</a>
         </div>
 
         <form class="mt-4">
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Crime</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option selected disabled value="">Selecione um crime</option>
+                <label for="select-crimes">Crime</label>
+                <select class="form-control" id="select-crimes">
+                    <option selected disabled value="undefined">Selecione um crime</option>
                     <option value="157">157 - Latrocínio</option>
                     <option value="157">157 - Latrocínio</option>
                     <option value="157">157 - Latrocínio</option>
@@ -77,31 +77,36 @@
             </div>
 
             <div class="form-group">
-                <label for="exampleFormControlSelect1">CEP</label>
-                <input class="form-control" placeholder="Informe o CEP" type="text" name="cep" id="cep">
+                <label for="input-datetime-local-time-of-event">Hora</label>
+                <input
+                    class="form-control"
+                    type="datetime-local"
+                    value="2011-08-19T13:45:00"
+                    id="input-datetime-local-time-of-event"
+                />
             </div>
 
-            <div id="report-cards">
-
-            </div>
-
-            <div class="card mt-4">
-                <h5 class="card-header">Crime</h5>
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                </div>
+            <div class="form-group">
+                <label for="input-text-cep">CEP</label>
+                <input class="form-control" placeholder="Informe o CEP" type="text" name="cep" id="input-text-cep">
             </div>
 
             <div class="mt-4">
-                <button type="button" class="btn btn-outline-primary">Adicionar</button>
+                <button type="button" onclick="prependCrime()" class="btn btn-outline-primary">
+                    Adicionar
+                </button>
+            </div>
+
+            <div id="crime-cards">
+                <!-- New card here -->
             </div>
 
             <div class="mt-4">
                 <button
                     type="button"
                     class="btn btn-outline-primary"
-                    style="display: block;"
+                    id="button-create-report"
+                    disabled
                 >
                     Criar
                 </button>
@@ -121,10 +126,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <!-- <script src="${pageContext.request.contextPath}/resources/js/report/new.js"></script> -->
-
     <script src="${pageContext.request.contextPath}/resources/js/report/new.js"></script>
-
 </body>
 
 </html>

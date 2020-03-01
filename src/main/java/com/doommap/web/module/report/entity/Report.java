@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "reports")
@@ -25,10 +26,19 @@ public class Report {
 	@Column(name = "updated_at")
 	private LocalDateTime updatedAt = LocalDateTime.now();
 
-	public Report() {
-	}
+	public Report() {}
 
 	public String getUuid() {
 		return this.uuid;
+	}
+
+	public String getCreatedAt() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		return formatter.format(this.createdAt);
+	}
+
+	public String getUpdatedAt() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		return formatter.format(this.updatedAt);
 	}
 }

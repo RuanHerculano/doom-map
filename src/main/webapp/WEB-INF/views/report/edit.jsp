@@ -8,12 +8,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Edit</title>
-<%@ include file="resources/html/head.html"%>
-<link rel="stylesheet" href="resources/css/header-menu.css">
-<link rel="stylesheet" href="resources/css/footer.css">
+<%@ include file="../../../resources/html/head.html"%>
+<link rel="stylesheet" href="../../../resources/css/header-menu.css">
+<link rel="stylesheet" href="../../../resources/css/footer.css">
 </head>
 <body>
-<%@ include file="resources/html/header.html"%>
+<%@ include file="../../../resources/html/header.html"%>
 <div class="container">
 	<h1>Edit</h1>
 	<form action="event" method="post">

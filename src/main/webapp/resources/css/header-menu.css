@@ -191,7 +191,7 @@ header{
     }
 
     .sphygmomanometer{
-        background-image: url("../images/black-blood-pressure.png");
+        background-image: url("../assets/black-blood-pressure.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 50% 50%;
@@ -341,7 +341,7 @@ header{
     }
 
     .sphygmomanometer{
-        background-image: url("../images/black-blood-pressure.png");
+        background-image: url("../assets/black-blood-pressure.png");
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 50% 50%;

@@ -9,23 +9,23 @@
     <title>Spinne Map</title>
     <meta name="description" content="violence map">
     <meta name="keywords" content="violence, steal, rape, murder, city, São Paulo, map, dangerous, street, neighborhood">
-    <%@ include file="resources/html/cursive-font.html"%>
-	<%@ include file="resources/html/head.html"%>
-    <link rel="stylesheet" href="resources/css/header-menu.css">
-    <link rel="stylesheet" href="resources/css/register.css">
-    <link rel="stylesheet" href="resources/css/select-data.css">
-    <link rel="stylesheet" href="resources/css/main-info.css">
-    <link rel="stylesheet" href="resources/css/add-search.css">
-    <link rel="stylesheet" href="resources/css/table.css">
-    <link rel="stylesheet" href="resources/css/main.css">
-    <link rel="stylesheet" href="resources/css/screens-add.css">
-    <link rel="stylesheet" href="resources/css/spinnemap.css">
+    <%@ include file="../../../resources/html/cursive-font.html"%>
+	<%@ include file="../../../resources/html/head.html"%>
+    <link rel="stylesheet" href="../../../resources/css/header-menu.css">
+    <link rel="stylesheet" href="../../../resources/css/register.css">
+    <link rel="stylesheet" href="../../../resources/css/select-data.css">
+    <link rel="stylesheet" href="../../../resources/css/main-info.css">
+    <link rel="stylesheet" href="../../../resources/css/add-search.css">
+    <link rel="stylesheet" href="../../../resources/css/table.css">
+    <link rel="stylesheet" href="../../../resources/css/main.css">
+    <link rel="stylesheet" href="../../../resources/css/screens-add.css">
+    <link rel="stylesheet" href="../../../resources/css/spinnemap.css">
   </head>
   
   <body>
   
   <!-- Header & menu -->
-  <%@ include file="resources/html/header.html"%>
+  <%@ include file="../../../resources/html/header.html"%>
   
   <div class="main">
     <div class="select-info">
@@ -55,7 +55,7 @@
     </div>
   
   <!-- Insert button & search -->
-  <%@ include file="resources/html/add-search.html"%>
+  <%@ include file="../../../resources/html/add-search.html"%>
   
   <!-- Insert screen -->
   <form class="form" action="register" id="register" method="post">
@@ -151,8 +151,8 @@
 </div>
 
 	<!-- JS links -->
-    <%@ include file="resources/html/js-links.html"%>
-    <script type="text/javascript" src="resources/js/insert.js"></script>
-    <script type="text/javascript" src="resources/js/add-cancel.js"></script>
+    <%@ include file="../../../resources/html/js-links.html"%>
+    <script type="text/javascript" src="../../../resources/js/insert.js"></script>
+    <script type="text/javascript" src="../../../resources/js/add-cancel.js"></script>
 </body>
 </html>

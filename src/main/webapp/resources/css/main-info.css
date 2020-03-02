@@ -1,0 +1,14 @@
+#main-info{
+    color: #3D995C;
+    font-family: 'Nothing You Could Do', cursive;
+    font-size: 6vw;
+}
+
+@media only screen and (min-width: 400px){
+	
+	#main-info{
+		color: #3D995C;
+    	font-size: 30px;
+    	margin: 0;
+    }
+}

@@ -65,7 +65,7 @@
             <a href="/report" class="btn btn-outline-primary my-2 my-sm-0">Voltar</a>
         </div>
 
-        <form class="mt-4">
+        <form class="mt-4" action="/report/create" method="POST">
             <div class="form-group">
                 <label for="select-crimes">Crime</label>
                 <select class="form-control" id="select-crimes">
@@ -88,7 +88,7 @@
 
             <div class="form-group">
                 <label for="input-text-cep">CEP</label>
-                <input class="form-control" placeholder="Informe o CEP" type="text" name="cep" id="input-text-cep">
+                <input class="form-control" placeholder="Informe o CEP" type="text" id="input-text-cep">
             </div>
 
             <div class="mt-4">
@@ -103,7 +103,7 @@
 
             <div class="mt-4">
                 <button
-                    type="button"
+                    type="submit"
                     class="btn btn-outline-primary"
                     id="button-create-report"
                     disabled

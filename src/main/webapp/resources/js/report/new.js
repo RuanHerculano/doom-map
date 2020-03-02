@@ -19,18 +19,21 @@ function prependCrime() {
                     <label class="col-sm-2 col-form-label">Crime</label>
                     <div class="col-sm-10">
                         <p class="form-control-static">${crime}</p>
+                        <input type="hidden" name="crimes[${cardIndex}][crime]" value="${crime}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Hora</label>
                     <div class="col-sm-10">
                         <p class="form-control-static">${timeOfEvent}</p>
+                        <input type="hidden" name="crimes[${cardIndex}][timeOfEvent]" value="${timeOfEvent}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">CEP</label>
                     <div class="col-sm-10">
                         <p class="form-control-static">${cep}</p>
+                        <input type="hidden" name="crimes[${cardIndex}][cep]" value="${cep}">
                     </div>
                 </div>
             </div>
@@ -38,7 +41,7 @@ function prependCrime() {
     );
 
     jQuery('#select-crimes').val('undefined');
-    jQuery('#input-datetime-local-time-of-event').val('');
+    jQuery('#input-datetime-local-time-of-event').val('2011-08-19T13:45:00');
     jQuery('#input-text-cep').val('');
 
     jQuery('#button-create-report').removeAttr('disabled');

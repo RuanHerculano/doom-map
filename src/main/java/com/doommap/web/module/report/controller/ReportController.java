@@ -2,12 +2,18 @@ package com.doommap.web.module.report.controller;
 
 import com.doommap.web.module.report.entity.Report;
 import com.doommap.web.module.report.service.ReportService;
+import com.doommap.web.module.report.bean.CrimeGUIBean;
 
-import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.util.List;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.http.MediaType;
@@ -28,7 +34,7 @@ public class ReportController {
 
         model.addAttribute("reports", reports);
 
-        return "/report/index";
+        return "report/index";
     }
 
     @GetMapping("/report/new")
@@ -36,37 +42,21 @@ public class ReportController {
         return "report/new";
     }
 
-    @PostMapping(value = "/report/create", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String createReport(Model model, @RequestParam Map<String, String> paramMap) {
-        List<Map<String , String>> crimes = new ArrayList<Map<String,String>>();
-        Map<String,String> mapCrime = new HashMap<String, String>();
-        ArrayList<Integer> crimeInstancesControl = new ArrayList<Integer>();
+    @PostMapping(value = "/report/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public String createReport(Model model, @RequestBody String json) throws IOException {
+        Gson gson = new Gson();
 
-        int index = 0;
-        for (Map.Entry<String,String> crime : paramMap.entrySet()) {
-            String keyName = this.keyNameOfCrimeObject(crime.getKey());
-            int crimeIndex = this.indexOfCrimeObject(crime.getKey());
+        CrimeGUIBean[] userArray = gson.fromJson(json, CrimeGUIBean[].class);
 
-            if (!crimeInstancesControl.contains(crimeIndex)) {
-                crimeInstancesControl.add(crimeIndex);
-                mapCrime = new HashMap<String, String>();
-            }
-
-            mapCrime.put(keyName, crime.getValue());
-            crimes.add(index, mapCrime);
-            index++;
-        }
-
-        for (Map<String,String> map : crimes) {
-            System.out.println("______________________________");
-            System.out.println(map);
-            System.out.println("______________________________");
+        for(CrimeGUIBean crime : userArray) {
+            System.out.println("asdasdasdasdasdasdasdass");
+            System.out.println(crime.getCrime());
         }
 
         List<Report> reports = reportService.findAll();
         model.addAttribute("reports", reports);
 
-        return "/report/index";
+        return "report/index";
     }
 
     private String keyNameOfCrimeObject(String str) {

@@ -1,10 +1,21 @@
 let cardIndex = 0;
+let crimes = [];
 
 function prependCrime() {
     cardIndex++;
-    const crime = jQuery('#select-crimes option:selected').text();
+    const crimeName = jQuery('#select-crimes option:selected').text();
+    const crimeCode = jQuery('#select-crimes option:selected').val();
     const timeOfEvent = jQuery('#input-datetime-local-time-of-event').val();
     const cep = jQuery('#input-text-cep').val();
+
+    const crime = {
+        crimeCode: crimeCode,
+        timeOfEvent: crimeCode,
+        cep: cep,
+    };
+
+    crimes.push(crime);
+    console.log(crimes);
 
     jQuery('#crime-cards').prepend(
         `<div class="card mt-4" id="crime-card-number-${cardIndex}">
@@ -18,22 +29,22 @@ function prependCrime() {
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Crime</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static">${crime}</p>
-                        <input type="hidden" name="crimes[${cardIndex}][crime]" value="${crime}">
+                        <p class="form-control-static">${crimeName}</p>
+                        <input type="hidden" name="crime[crime]" value="${crime}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Hora</label>
                     <div class="col-sm-10">
                         <p class="form-control-static">${timeOfEvent}</p>
-                        <input type="hidden" name="crimes[${cardIndex}][timeOfEvent]" value="${timeOfEvent}">
+                        <input type="hidden" name="crime[timeOfEvent]" value="${timeOfEvent}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">CEP</label>
                     <div class="col-sm-10">
                         <p class="form-control-static">${cep}</p>
-                        <input type="hidden" name="crimes[${cardIndex}][cep]" value="${cep}">
+                        <input type="hidden" name="crime[cep]" value="${cep}">
                     </div>
                 </div>
             </div>
@@ -45,6 +56,24 @@ function prependCrime() {
     jQuery('#input-text-cep').val('');
 
     jQuery('#button-create-report').removeAttr('disabled');
+}
+
+function submitNewReport(event) {
+    event.preventDefault();
+
+    const currentCrimes = crimes;
+    console.log('asdasdasda', currentCrimes);
+
+    $.ajax({
+        type: 'POST',
+        url: '/report/create',
+        data: JSON.stringify(currentCrimes),
+        contentType: 'application/json; charset=utf-8',
+        success: function () {
+            console.log('TETA');
+            location.href = '/report';
+        }
+    });
 }
 
 function removeCard(cardIndex) {

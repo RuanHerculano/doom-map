@@ -1,0 +1,375 @@
+.dropdown-item{
+    font-size: 12px;
+    padding: 0 1vw;
+}
+
+.dropdown-menu{
+    min-width: 0px;
+}
+
+.main-menu{
+    display: none;
+}
+
+.tablet-desktop-header{
+	display: none;
+}
+
+header .row{
+    background-color: white;
+    border-top: 5px white solid;
+    border-bottom: 5px white solid;
+    margin: 0;
+    width: 100%;
+}
+
+header i{
+    font-size: 30px;
+    color: black;
+}
+
+.mobile-nav{
+    text-align: left;
+    width: calc(100vw - 30px);
+    margin-left: 15px;
+    margin-top: 20px;
+    display: none;
+}
+
+.mobile-nav a{
+    color: #3D995C;
+    font-size: 18px;
+}
+
+.expand {
+    display: block;
+}
+
+.clean{
+    background-color: white;
+    border-bottom: none;
+}
+
+.col-2{
+    padding: 0;
+}
+
+.hello{
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    width: 20px;
+}
+
+span{
+    color: #3D995C;
+}
+
+header{
+    margin: 0;
+    padding: 0;
+    border-bottom: 0.7vw black solid;
+}
+
+@media only screen and (min-width: 500px){
+    .logo{
+        width: 30px;
+    }
+
+    header{
+        border-bottom: 3px black solid;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 960px) and (orientation: portrait){
+	.row{
+        margin: 0;
+	}
+        
+    .mobile-header{
+        display: none;
+    }
+    
+    .tablet-desktop-header{
+        display: block;
+        padding-top: 2vh;
+        margin-bottom: 6vh;
+    }
+    
+        header{
+        background-color: transparent;
+        border: none;
+    }
+
+    header .row{
+        background-color: transparent;
+        border: transparent;
+        color: black;
+    }
+    
+    header p{
+        font-size: 1vh;
+        line-height: 3em;
+        margin: 0;
+    }
+    
+    .logo{
+        width: 3vh;
+    }    
+
+    .fa-user-circle{
+        font-size: 4vh;
+    }
+
+    .navbar{
+        padding: 0;
+    }
+
+    .dropdown-toggle{
+        color: black;
+        float: left;
+        padding: 0;
+    }
+
+    .fa-user-circle:hover{
+        background-color: transparent;
+        color: white;
+        font-size: 3vh;
+    }
+
+    .fa-user-circle{
+        font-size: 3vh;
+    }
+
+    .dropdown-toggle:hover{
+        color: white;
+    }
+
+    header a{
+        color: #3D995C;
+    }
+
+    header a:hover{
+        color: #5CE68A;
+        text-decoration: none;
+    }
+
+    .main-menu i{
+        background-color: #3D995C;
+        border-radius: 50%;
+        font-size: 1.5vh;
+        color: black;
+        z-index: 100;
+    }
+
+    nav .fa-weight{
+        padding: 1.5vh;
+    }
+
+    nav .fa-apple-alt{
+        padding: 1.5vh 1.5873vh;
+    }
+
+    nav .fa-chart-line{
+        background-color: #5CE68A;
+        border: solid 2px black;
+        font-size: 2.5vh;
+        padding: 1.5vh;
+    }
+
+    nav .fa-dumbbell{
+        padding: 1.5vh 1.125vh;
+    }
+
+    nav i:hover{
+        background-color: #5CE68A;
+        cursor: pointer;
+        font-size: 3.8vh;
+    }
+
+    .sphygmomanometer{
+        background-image: url("../assets/black-blood-pressure.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 50% 50%;
+        display: inline-block;
+        margin: 0;
+        border-radius: 50%;
+        background-color: #3D995C;
+        width: 4.5vh;
+        height: 4.5vh;
+        z-index: 100;
+    }
+
+    .sphygmomanometer:hover{
+        background-color: #5CE68A;
+        cursor: pointer;
+        height: 5.5vh;
+        width: 5.5vh;
+    }
+
+    .main-menu{
+        display: block;
+        position: absolute;
+        top: 10vh;
+        width: 100%;
+    }
+
+    .main-menu .col-2{
+        padding: 0;
+        cursor: pointer;
+    }
+    
+    h1{
+        font-size: 1.5vh;
+        line-height: 1.7em;
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width: 960px) and (orientation : landscape){
+	.row{
+        margin: 0;
+    }
+
+    .tablet-desktop-header{
+        margin-bottom: 6vh;
+    }
+    
+    .mobile-header{
+        display: none;
+    }
+    
+    header{
+        background-color: transparent;
+        border: none;
+    }
+
+    header .row{
+        background-color: transparent;
+        border: transparent;
+        color: black;
+    }
+
+    h1{
+        font-size: 3vh;
+        margin: 0;
+    }
+
+    header p{
+        color: black;
+        font-size: 1.5vh;
+        line-height: 3em;
+        margin: 0;
+    }
+    .tablet-desktop-header{
+        display: block;
+        padding-top: 2vh;
+    }
+
+    .logo{
+        width: 4vh;
+    }    
+
+    .fa-user-circle{
+        font-size: 4vh;
+    }
+
+    .navbar{
+        padding: 0;
+    }
+
+    .dropdown-toggle{
+        color: black;
+        float: left;
+        padding: 0;
+    }
+
+    .fa-user-circle:hover{
+        background-color: transparent;
+        color: white;
+        font-size: 4vh;
+    }
+
+    .dropdown-toggle:hover{
+        color: white;
+    }
+
+    header a{
+        color: #3D995C;
+    }
+
+    header a:hover{
+        color: #5CE68A;
+        text-decoration: none;
+    }
+
+    .main-menu i{
+        background-color: #3D995C;
+        border-radius: 50%;
+        font-size: 2.5vh;
+        color: black;
+        z-index: 100;
+    }
+
+    nav .fa-weight{
+        padding: 1.5vh;
+    }
+
+    nav .fa-apple-alt{
+        padding: 1.5vh 1.5873vh;
+    }
+
+    nav .fa-chart-line{
+        background-color: #5CE68A;
+        border: solid 2px black;
+        font-size: 4vh;
+        padding: 1.5vh;
+    }
+
+    nav .fa-dumbbell{
+        padding: 1.5vh 1.125vh;
+    }
+
+    nav i:hover{
+        background-color: #5CE68A;
+        cursor: pointer;
+        font-size: 3.8vh;
+    }
+
+    .sphygmomanometer{
+        background-image: url("../assets/black-blood-pressure.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 50% 50%;
+        display: inline-block;
+        margin: 0;
+        border-radius: 50%;
+        background-color: #3D995C;
+        width: 5.5vh;
+        height: 5.5vh;
+        z-index: 100;
+    }
+
+    .sphygmomanometer:hover{
+        background-color: #5CE68A;
+        cursor: pointer;
+        height: 7vh;
+        width: 7vh;
+    }
+
+    .main-menu{
+        display: block;
+        position: absolute;
+        top: 10vh;
+        width: 100%;
+    }
+
+    .main-menu .col-2{
+        padding: 0;
+        cursor: pointer;
+    }
+}

@@ -70,9 +70,9 @@
                 <label for="select-crimes">Crime</label>
                 <select class="form-control" id="select-crimes">
                     <option selected disabled value="undefined">Selecione um crime</option>
-                    <option value="157">157 - Latrocínio</option>
-                    <option value="157">157 - Latrocínio</option>
-                    <option value="157">157 - Latrocínio</option>
+                    <option value="1">157 - Roubo seguido de morte</option>
+                    <option value="2">213 - Estupro</option>
+                    <option value="3">121 - Assassinato</option>
                 </select>
             </div>
 

@@ -4,16 +4,9 @@ import com.doommap.web.module.report.entity.Report;
 import com.doommap.web.module.report.service.ReportService;
 import com.doommap.web.module.report.bean.CrimeGUIBean;
 
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import java.util.List;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.http.MediaType;
@@ -43,31 +36,13 @@ public class ReportController {
     }
 
     @PostMapping(value = "/report/create", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String createReport(Model model, @RequestBody String json) throws IOException {
+    public String createReport(Model model, @RequestBody String json) {
         Gson gson = new Gson();
 
-        CrimeGUIBean[] userArray = gson.fromJson(json, CrimeGUIBean[].class);
+        CrimeGUIBean[] crimes = gson.fromJson(json, CrimeGUIBean[].class);
 
-        for(CrimeGUIBean crime : userArray) {
-            System.out.println("asdasdasdasdasdasdasdass");
-            System.out.println(crime.getCrime());
-        }
+        reportService.create(crimes);
 
-        List<Report> reports = reportService.findAll();
-        model.addAttribute("reports", reports);
-
-        return "report/index";
-    }
-
-    private String keyNameOfCrimeObject(String str) {
-        String[] arrOfStr = str.split("\\]\\[", 2);
-        String keyName = arrOfStr[1].replace("]", "");
-        return keyName;
-    }
-
-    private int indexOfCrimeObject(String str) {
-        String[] arrOfStr = str.split("\\]\\[", 2);
-        int index = Integer.parseInt(arrOfStr[0].replace("crimes[", ""));
-        return index;
+        return "report/success";
     }
 }

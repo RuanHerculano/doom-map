@@ -4,13 +4,13 @@ let crimes = [];
 function prependCrime() {
     cardIndex++;
     const crimeName = jQuery('#select-crimes option:selected').text();
-    const crimeCode = jQuery('#select-crimes option:selected').val();
+    const crimeID = jQuery('#select-crimes option:selected').val();
     const timeOfEvent = jQuery('#input-datetime-local-time-of-event').val();
     const cep = jQuery('#input-text-cep').val();
 
     const crime = {
-        crimeCode: crimeCode,
-        timeOfEvent: crimeCode,
+        crimeID: crimeID,
+        timeOfEvent: formatDatetime(timeOfEvent),
         cep: cep,
     };
 
@@ -61,13 +61,10 @@ function prependCrime() {
 function submitNewReport(event) {
     event.preventDefault();
 
-    const currentCrimes = crimes;
-    console.log('asdasdasda', currentCrimes);
-
     $.ajax({
         type: 'POST',
         url: '/report/create',
-        data: JSON.stringify(currentCrimes),
+        data: JSON.stringify(crimes),
         contentType: 'application/json; charset=utf-8',
         success: function () {
             console.log('TETA');
@@ -83,4 +80,34 @@ function removeCard(cardIndex) {
     if (amountCards === 0) {
         jQuery('#button-create-report').attr("disabled", true);
     }
+}
+
+function formatDatetime(stringDate) {
+    let date = new Date(stringDate);
+    let yyyy = date.getFullYear();
+    let dd = date.getDate();
+    let MM = (date.getMonth() + 1);
+
+    if (dd < 10)
+        dd = "0" + dd;
+
+    if (MM < 10)
+        MM = "0" + MM;
+
+    const formattedDatetime = yyyy + "-" + MM + "-" + dd;
+
+    var HH = date.getHours()
+    let mm = date.getMinutes()
+    var ss = date.getSeconds();
+
+    if (HH < 10)
+        HH = "0" + HH;
+
+    if (mm < 10)
+        mm = "0" + mm;
+
+    if (ss < 10)
+        ss = "0" + ss;
+
+    return formattedDatetime + " " + HH + ":" + mm + ":" + ss;
 }

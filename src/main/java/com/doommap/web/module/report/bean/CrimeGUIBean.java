@@ -1,24 +1,24 @@
 package com.doommap.web.module.report.bean;
 
 public class CrimeGUIBean {
-    private String crimeCode;
+    private String crimeID;
     private String timeOfEvent;
     private String cep;
 
     public CrimeGUIBean() {}
 
-    public CrimeGUIBean(String crimeCode, String timeOfEvent, String cep) {
-        this.crimeCode = crimeCode;
+    public CrimeGUIBean(String crimeID, String timeOfEvent, String cep) {
+        this.crimeID = crimeID;
         this.timeOfEvent = timeOfEvent;
         this.cep = cep;
     }
 
-    public void setCrime(String crimeCode) {
-        this.crimeCode = crimeCode;
+    public void setCrimeID(String crimeID) {
+        this.crimeID = crimeID;
     }
 
-    public String getCrime() {
-        return this.crimeCode;
+    public String getCrimeID() {
+        return this.crimeID;
     }
 
     public void setTimeOfEvent(String timeOfEvent) {

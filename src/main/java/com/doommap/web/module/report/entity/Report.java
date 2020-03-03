@@ -1,44 +1,70 @@
 package com.doommap.web.module.report.entity;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 @Entity
-@Table(name = "reports")
+@Table(name = "report")
 public class Report {
 
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
-	long id = 0;
+	long id;
 
 	@Column(name = "uuid")
-	private String uuid = "";
+	private String uuid;
 
 	@Column(name = "created_at")
-	private LocalDateTime createdAt = LocalDateTime.now();
+	@CreationTimestamp
+	private LocalDateTime createdAt;
 
 	@Column(name = "updated_at")
-	private LocalDateTime updatedAt = LocalDateTime.now();
+	@UpdateTimestamp
+	private LocalDateTime updatedAt;
 
-	public Report() {}
+	public Report() {
+		UUID uuid = UUID.randomUUID();
+		this.uuid = uuid.toString();
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getUuid() {
-		return this.uuid;
+		return uuid;
 	}
 
-	public String getCreatedAt() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-		return formatter.format(this.createdAt);
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
-	public String getUpdatedAt() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-		return formatter.format(this.updatedAt);
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public LocalDateTime getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(LocalDateTime updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 }

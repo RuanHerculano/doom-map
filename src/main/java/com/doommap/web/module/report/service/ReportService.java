@@ -82,4 +82,10 @@ public class ReportService {
             reportCrimeRepository.save(reportCrime);
         }
     }
+
+    public void destroy(long reportId) {
+        Report report = reportRepository.findById(reportId).orElse(null);
+        reportCrimeRepository.deleteAllReportCrimesByReportId(report);
+        reportRepository.deleteById(reportId);
+    }
 }

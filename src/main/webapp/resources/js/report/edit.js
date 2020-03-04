@@ -1,4 +1,4 @@
-let cardIndex = 0;
+let cardIndex = 1;
 let crimes = [];
 
 function prependCrime() {
@@ -90,12 +90,13 @@ function removeCard(cardIndex) {
     jQuery(`#crime-card-number-${cardIndex}`).remove();
 
     const amountCards = $("#crime-cards").children().length;
-
     if (amountCards === 0) {
         jQuery('#button-create-report').attr("disabled", true);
     } else {
         jQuery('#button-create-report').removeAttr('disabled');
     }
+
+    crimes.splice(cardIndex, 1);
 }
 
 function formatDatetime(date) {

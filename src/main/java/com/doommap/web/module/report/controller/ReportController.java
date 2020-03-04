@@ -10,7 +10,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +35,7 @@ public class ReportController {
         return "report/new";
     }
 
-    @PostMapping(value = "/report/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/report/create")
     public String createReport(Model model, @RequestBody String json) {
         Gson gson = new Gson();
 
@@ -63,6 +62,13 @@ public class ReportController {
         CrimeGUIBean[] crimes = gson.fromJson(json, CrimeGUIBean[].class);
 
         reportService.update(reportId, crimes);
+
+        return "report/success";
+    }
+
+    @PostMapping("/report/delete/{reportId}")
+    public String destroy(@PathVariable(value="reportId") long reportId) {
+        reportService.destroy(reportId);
 
         return "report/success";
     }

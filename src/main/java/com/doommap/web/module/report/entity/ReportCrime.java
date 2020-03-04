@@ -18,14 +18,13 @@ public class ReportCrime {
     @Column(name = "time_of_event")
     LocalDateTime timeOfEvent;
 
-    @Column(name = "address_id")
-    long addressID;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
 
-    @Column(name = "crime_id")
-    long crimeID;
-
-    @Column(name = "report_id")
-    long reportID;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "crime_id", referencedColumnName = "id")
+    private Crime crime;
 
     @Column(name = "created_at")
     @CreationTimestamp
@@ -35,10 +34,28 @@ public class ReportCrime {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    public ReportCrime(LocalDateTime timeOfEvent, long addressID, long crimeID, long reportID) {
+    @ManyToOne
+    @JoinColumn(name="report_id")
+    private Report report;
+
+    public ReportCrime() {}
+
+    public ReportCrime(LocalDateTime timeOfEvent, Address address, Crime crime, Report report) {
         this.timeOfEvent = timeOfEvent;
-        this.addressID = addressID;
-        this.crimeID = crimeID;
-        this.reportID = reportID;
+        this.address = address;
+        this.crime = crime;
+        this.report = report;
+    }
+
+    public LocalDateTime getTimeOfEvent() {
+        return this.timeOfEvent;
+    }
+
+    public Address getAddress() {
+        return this.address;
+    }
+
+    public Crime getCrime() {
+        return this.crime;
     }
 }

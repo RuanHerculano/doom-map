@@ -3,12 +3,9 @@ package com.doommap.web.module.report.entity;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -31,13 +28,20 @@ public class Report {
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;
 
+	@OneToMany(mappedBy = "report", cascade = CascadeType.ALL)
+	private Set<ReportCrime> reportCrimes;
+
 	public Report() {
 		UUID uuid = UUID.randomUUID();
 		this.uuid = uuid.toString();
 	}
 
+	public Set<ReportCrime> getReportCrimes() {
+		return reportCrimes;
+	}
+
 	public long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(long id) {

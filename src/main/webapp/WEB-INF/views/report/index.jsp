@@ -87,12 +87,13 @@
                                 <c:out value="${report.getUpdatedAt()}" />
                             </td>
                             <td>
-                                <button
+                                <a
+                                    href="/report/edit/<c:out value="${report.getId()}" />"
                                     class="btn btn-outline-success my-2 my-sm-0"
                                     type="submit"
                                 >
                                     Editar
-                                </button>
+                                </a>
 
                                 <button
                                     class="btn btn-outline-danger my-2 my-sm-0"

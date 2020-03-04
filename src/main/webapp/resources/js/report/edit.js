@@ -15,7 +15,6 @@ function prependCrime() {
     };
 
     crimes.push(crime);
-    console.log(crimes);
 
     jQuery('#crime-cards').prepend(
         `<div class="card mt-4" id="crime-card-number-${cardIndex}">
@@ -55,12 +54,30 @@ function prependCrime() {
     jQuery('#button-create-report').removeAttr('disabled');
 }
 
-function submitNewReport(event) {
+function prependCrimeWithoutHtml(crimeID, timeOfEvent, cep) {
+    const crime = {
+        crimeID: crimeID,
+        timeOfEvent: formatDatetime(new Date(timeOfEvent)),
+        cep: cep,
+    };
+
+    crimes.push(crime);
+}
+
+function overrideCardIndex(index) {
+    cardIndex = index;
+}
+
+function submitEditReport(event) {
     event.preventDefault();
+
+    const url = window.location.pathname;
+    const urlArray = url.split('/');
+    const id = urlArray[urlArray.length - 1];
 
     $.ajax({
         type: 'POST',
-        url: '/report/create',
+        url: '/report/update/' + id,
         data: JSON.stringify(crimes),
         contentType: 'application/json; charset=utf-8',
         success: function () {
@@ -73,8 +90,11 @@ function removeCard(cardIndex) {
     jQuery(`#crime-card-number-${cardIndex}`).remove();
 
     const amountCards = $("#crime-cards").children().length;
+
     if (amountCards === 0) {
         jQuery('#button-create-report').attr("disabled", true);
+    } else {
+        jQuery('#button-create-report').removeAttr('disabled');
     }
 }
 

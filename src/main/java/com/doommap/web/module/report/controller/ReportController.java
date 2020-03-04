@@ -5,6 +5,7 @@ import com.doommap.web.module.report.service.ReportService;
 import com.doommap.web.module.report.bean.CrimeGUIBean;
 
 import com.google.gson.Gson;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,26 @@ public class ReportController {
         CrimeGUIBean[] crimes = gson.fromJson(json, CrimeGUIBean[].class);
 
         reportService.create(crimes);
+
+        return "report/success";
+    }
+
+    @GetMapping("/report/edit/{reportId}")
+    public String edit(Model model, @PathVariable(value="reportId") long reportId) {
+        Report report = reportService.findById(reportId);
+
+        model.addAttribute("report", report);
+
+        return "report/edit2";
+    }
+
+    @PostMapping("/report/update/{reportId}")
+    public String update(@PathVariable(value="reportId") long reportId, @RequestBody String json) {
+        Gson gson = new Gson();
+
+        CrimeGUIBean[] crimes = gson.fromJson(json, CrimeGUIBean[].class);
+
+        reportService.update(reportId, crimes);
 
         return "report/success";
     }

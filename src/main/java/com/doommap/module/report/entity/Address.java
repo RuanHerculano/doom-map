@@ -1,4 +1,4 @@
-package com.doommap.web.module.report.entity;
+package com.doommap.module.report.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -7,19 +7,16 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "crime")
-public class Crime {
+@Table(name = "address")
+public class Address {
 
     @Id
     @GeneratedValue
     @Column(name = "id")
     long id;
 
-    @Column(name = "code")
-    private String code;
-
-    @Column(name = "name")
-    private String name;
+    @Column(name = "cep")
+    private String cep;
 
     @Column(name = "created_at")
     @CreationTimestamp
@@ -29,32 +26,44 @@ public class Crime {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    @OneToOne(mappedBy = "crime")
+    @OneToOne(mappedBy = "address")
     private ReportCrime reportCrime;
 
-    public Crime() {}
+    public Address() {}
+
+    public Address(String cep) {
+        this.cep = cep;
+    }
 
     public long getId() {
         return id;
     }
 
-    public String getCode() {
-        return code;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public ReportCrime getReportCrime() {
-        return reportCrime;
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

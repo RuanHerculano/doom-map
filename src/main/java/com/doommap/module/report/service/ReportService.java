@@ -1,19 +1,20 @@
-package com.doommap.web.module.report.service;
+package com.doommap.module.report.service;
 
-import com.doommap.web.module.report.bean.CrimeGUIBean;
-import com.doommap.web.module.report.entity.Address;
-import com.doommap.web.module.report.entity.Crime;
-import com.doommap.web.module.report.entity.Report;
-import com.doommap.web.module.report.entity.ReportCrime;
-import com.doommap.web.module.report.repository.AddressRepository;
-import com.doommap.web.module.report.repository.CrimeRepository;
-import com.doommap.web.module.report.repository.ReportCrimeRepository;
-import com.doommap.web.module.report.repository.ReportRepository;
+import com.doommap.module.report.bean.CrimeGUIBean;
+import com.doommap.module.report.entity.Address;
+import com.doommap.module.report.entity.Crime;
+import com.doommap.module.report.entity.Report;
+import com.doommap.module.report.entity.ReportCrime;
+import com.doommap.module.report.repository.AddressRepository;
+import com.doommap.module.report.repository.CrimeRepository;
+import com.doommap.module.report.repository.ReportCrimeRepository;
+import com.doommap.module.report.repository.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -37,10 +38,15 @@ public class ReportService {
         return reportRepository.findAll();
     }
 
-    public void create(CrimeGUIBean[] crimes) {
+    public Report findById(long reportID) {
+        return reportRepository.findById(reportID).orElse(null);
+    }
+
+    public List<ReportCrime> create(CrimeGUIBean[] crimes) {
         Report report = new Report();
         Report createdReport = reportRepository.save(report);
 
+        List<ReportCrime> reportCrimes = new ArrayList<>();
         for(CrimeGUIBean crimeGUIBean : crimes) {
             Address address = new Address(crimeGUIBean.getCep());
             Address createdAddress = addressRepository.save(address);
@@ -54,18 +60,17 @@ public class ReportService {
                 createdReport
             );
 
-            reportCrimeRepository.save(reportCrime);
+            reportCrimes.add(reportCrimeRepository.save(reportCrime));
         }
+
+        return reportCrimes;
     }
 
-    public Report findById(long reportID) {
-        return reportRepository.findById(reportID).orElse(null);
-    }
-
-    public void update(long reportId, CrimeGUIBean[] crimes) {
+    public List<ReportCrime> update(long reportId, CrimeGUIBean[] crimes) {
         Report report = reportRepository.findById(reportId).orElse(null);
         reportCrimeRepository.deleteAllReportCrimesByReportId(report);
 
+        List<ReportCrime> reportCrimes = new ArrayList<>();
         for(CrimeGUIBean crimeGUIBean : crimes) {
             Address address = new Address(crimeGUIBean.getCep());
             Address createdAddress = addressRepository.save(address);
@@ -79,8 +84,10 @@ public class ReportService {
                     report
             );
 
-            reportCrimeRepository.save(reportCrime);
+            reportCrimes.add(reportCrimeRepository.save(reportCrime));
         }
+
+        return reportCrimes;
     }
 
     public void destroy(long reportId) {

@@ -1,8 +1,8 @@
-package com.doommap.web.module.report.controller;
+package com.doommap.module.report.controller.web;
 
-import com.doommap.web.module.report.entity.Report;
-import com.doommap.web.module.report.service.ReportService;
-import com.doommap.web.module.report.bean.CrimeGUIBean;
+import com.doommap.module.report.entity.Report;
+import com.doommap.module.report.service.ReportService;
+import com.doommap.module.report.bean.CrimeGUIBean;
 
 import com.google.gson.Gson;
 
@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ReportController {
@@ -22,7 +21,7 @@ public class ReportController {
     private ReportService reportService;
 
     @GetMapping({"/", "/report"})
-    public String index(Model model, @RequestParam(value="name", required=false, defaultValue="Hello World!") String name) {
+    public String index(Model model) {
         List<Report> reports = reportService.findAll();
 
         model.addAttribute("reports", reports);

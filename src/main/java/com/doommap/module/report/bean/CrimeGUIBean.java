@@ -1,4 +1,4 @@
-package com.doommap.web.module.report.bean;
+package com.doommap.module.report.bean;
 
 public class CrimeGUIBean {
     private String crimeID;

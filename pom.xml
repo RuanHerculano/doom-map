@@ -59,10 +59,16 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.oracle.ojdbc/ojdbc10 -->
+<!--		&lt;!&ndash; https://mvnrepository.com/artifact/com.oracle.ojdbc/ojdbc10 &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>com.oracle.ojdbc</groupId>-->
+<!--			<artifactId>ojdbc10</artifactId>-->
+<!--		</dependency>-->
+
+		<!-- PostgreSQL -->
 		<dependency>
-			<groupId>com.oracle.ojdbc</groupId>
-			<artifactId>ojdbc10</artifactId>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->

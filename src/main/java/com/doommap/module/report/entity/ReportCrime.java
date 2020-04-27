@@ -1,4 +1,4 @@
-package com.doommap.web.module.report.entity;
+package com.doommap.module.report.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;

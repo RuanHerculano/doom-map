@@ -1,4 +1,4 @@
-package com.doommap.web.config;
+package com.doommap.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

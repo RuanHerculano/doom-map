@@ -1,7 +1,7 @@
 
-package com.doommap.web.module.report.repository;
+package com.doommap.module.report.repository;
 
-import com.doommap.web.module.report.entity.Crime;
+import com.doommap.module.report.entity.Crime;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

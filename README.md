@@ -1,4 +1,4 @@
-# healthtrack
+# Doom Map
 
 ## Api routes
 
